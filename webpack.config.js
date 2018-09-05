@@ -36,29 +36,17 @@ module.exports = () => {
                     use: [{
                         loader: "babel-loader",
                         options: {
-                            cacheDirectory: false,
-                            babelrc: false,
                             presets: [
                                 ["@babel/preset-env", {
                                     targets: {
                                         node: "current"
-                                    },
-                                    useBuiltIns: "usage",
-                                    modules: false,
-                                    loose: true
-                                }],
-                                "@babel/preset-react"
+                                    }
+                                }]
                             ]
                         }
                     }]
                 }
             ]
-        },
-        resolve: {
-            alias: {
-                "ENVIRONMENT_TYPE": "./@server",
-                "DEVICE_TYPE": "./@" + process.env.DEVICE_TYPE
-            }
         },
         devtool: "source-map",
         externals: externals
